@@ -16,6 +16,7 @@ import { Balance } from "../components/Balance";
 import { CustomContainer } from "../components/CustomContainer";
 import { Header } from "../components/Header";
 import { Profile } from "../components/Profile";
+import { Transactions } from "../components/Transactions";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -100,9 +101,7 @@ export default function Home() {
                   <Balance user={user} />
                 </TabPanel>
                 <TabPanel>
-                  <Text fontSize="xl" fontWeight="bold">
-                    Transactions
-                  </Text>
+                  <Transactions user={user} />
                 </TabPanel>
                 <TabPanel>
                   <Text fontSize="xl" fontWeight="bold">
