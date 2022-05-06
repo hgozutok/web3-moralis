@@ -2,6 +2,7 @@ import React from "react";
 import { CustomContainer } from "./CustomContainer";
 import { useMoralisWeb3Api } from "react-moralis";
 import { Divider } from "@chakra-ui/react";
+import Link from "next/link";
 
 export const Transactions = ({ user }) => {
   const Web3Api = useMoralisWeb3Api();
@@ -31,6 +32,15 @@ export const Transactions = ({ user }) => {
       {transactions ? (
         transactions.map((transaction) => (
           <div key={transaction.transaction_index}>
+            <Link
+              isExternal
+              href={
+                process.env.NEXT_PUBLIC_ETHERSCAN_URL + `${transaction.hash}`
+              }
+            >
+              <a>{transaction.hash}</a>
+            </Link>
+
             <h2>{transaction.from_address}</h2>
             <h3>{transaction.to_address}</h3>
             <h3>{transaction.gas_price}</h3>

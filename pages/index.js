@@ -15,6 +15,7 @@ import { useMoralis } from "react-moralis";
 import { Balance } from "../components/Balance";
 import { CustomContainer } from "../components/CustomContainer";
 import { Header } from "../components/Header";
+import { Nft } from "../components/Nft";
 import { Profile } from "../components/Profile";
 import { Transactions } from "../components/Transactions";
 import styles from "../styles/Home.module.css";
@@ -104,9 +105,7 @@ export default function Home() {
                   <Transactions user={user} />
                 </TabPanel>
                 <TabPanel>
-                  <Text fontSize="xl" fontWeight="bold">
-                    NFTs
-                  </Text>
+                  <Nft user={user} />
                 </TabPanel>
                 <TabPanel>
                   <Text fontSize="xl" fontWeight="bold">
