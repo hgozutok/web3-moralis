@@ -12,7 +12,9 @@ import {
 import Head from "next/head";
 import Image from "next/image";
 import { useMoralis } from "react-moralis";
+import { CustomContainer } from "../components/CustomContainer";
 import { Header } from "../components/Header";
+import { Profile } from "../components/Profile";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -61,28 +63,56 @@ export default function Home() {
         <Flex direction="column" width="100vw" height="100vh">
           <Header user={user} logout={logout} isLoggingOut={isLoggingOut} />
           <Box flex="1" bg="purple.100" px="44" py="20">
-            <Tabs>
+            <Tabs align="center" variant="enclosed">
               <TabList>
                 <Tab>
                   <Text fontSize="xl" fontWeight="bold">
-                    Dashboard
+                    Profile
+                  </Text>
+                </Tab>
+                <Tab>
+                  <Text fontSize="xl" fontWeight="bold">
+                    Balance
                   </Text>
                 </Tab>
                 <Tab>
                   <Text fontSize="xl" fontWeight="bold">
                     Transactions
+                  </Text>
+                </Tab>
+                <Tab>
+                  <Text fontSize="xl" fontWeight="bold">
+                    NFTs
+                  </Text>
+                </Tab>
+                <Tab>
+                  <Text fontSize="xl" fontWeight="bold">
+                    Send ETH
                   </Text>
                 </Tab>
               </TabList>
               <TabPanels>
                 <TabPanel>
+                  <Profile user={user} />
+                </TabPanel>
+                <TabPanel>
                   <Text fontSize="xl" fontWeight="bold">
-                    Dashboard
+                    Balance
                   </Text>
                 </TabPanel>
                 <TabPanel>
                   <Text fontSize="xl" fontWeight="bold">
                     Transactions
+                  </Text>
+                </TabPanel>
+                <TabPanel>
+                  <Text fontSize="xl" fontWeight="bold">
+                    NFTs
+                  </Text>
+                </TabPanel>
+                <TabPanel>
+                  <Text fontSize="xl" fontWeight="bold">
+                    Send ETH
                   </Text>
                 </TabPanel>
               </TabPanels>
