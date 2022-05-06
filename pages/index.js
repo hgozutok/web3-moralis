@@ -12,6 +12,7 @@ import {
 import Head from "next/head";
 import Image from "next/image";
 import { useMoralis } from "react-moralis";
+import { Balance } from "../components/Balance";
 import { CustomContainer } from "../components/CustomContainer";
 import { Header } from "../components/Header";
 import { Profile } from "../components/Profile";
@@ -96,9 +97,7 @@ export default function Home() {
                   <Profile user={user} />
                 </TabPanel>
                 <TabPanel>
-                  <Text fontSize="xl" fontWeight="bold">
-                    Balance
-                  </Text>
+                  <Balance user={user} />
                 </TabPanel>
                 <TabPanel>
                   <Text fontSize="xl" fontWeight="bold">
