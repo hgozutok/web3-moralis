@@ -1,6 +1,7 @@
 import React from "react";
 import { CustomContainer } from "./CustomContainer";
 import { useMoralisWeb3Api } from "react-moralis";
+import { Divider } from "@chakra-ui/react";
 
 export const Transactions = ({ user }) => {
   const Web3Api = useMoralisWeb3Api();
@@ -35,6 +36,7 @@ export const Transactions = ({ user }) => {
             <h3>{transaction.gas_price}</h3>
             <h3>{transaction.value}</h3>
             <h3>{transaction.block_timestamp}</h3>
+            <Divider />
           </div>
         ))
       ) : (
