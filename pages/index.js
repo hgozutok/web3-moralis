@@ -20,7 +20,7 @@ import { Profile } from "../components/Profile";
 import { Send } from "../components/Send";
 import { Transactions } from "../components/Transactions";
 import styles from "../styles/Home.module.css";
-
+//
 export default function Home() {
   const { isAuthenticated, authenticate, user, logout, isLoggingOut } =
     useMoralis();
