@@ -46,6 +46,15 @@ export default function Home() {
             size="lg"
             onClick={() =>
               authenticate({
+                rovider: "walletconnect",
+                mobileLinks: [
+                  "rainbow",
+                  "metamask",
+                  "argent",
+                  "trust",
+                  "imtoken",
+                  "pillar",
+                ],
                 signingMessage: "Login to Dashboard",
               })
             }

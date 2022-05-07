@@ -17,7 +17,7 @@ export const Transactions = ({ user }) => {
       .catch((err) => {
         console.log(err);
       });
-    if (data.result) {
+    if (data) {
       setTransactions(data.result);
       console.log(transactions);
     }

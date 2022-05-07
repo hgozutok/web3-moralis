@@ -20,7 +20,7 @@ export const Balance = ({ user }) => {
       .catch((err) => {
         console.log(err);
       });
-    if (ercBalance.balance) {
+    if (ercBalance) {
       setBalance(Moralis.Units.FromWei(ercBalance.balance));
     }
     //  setBalance(ercBalance);
