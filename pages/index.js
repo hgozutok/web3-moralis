@@ -17,6 +17,7 @@ import { CustomContainer } from "../components/CustomContainer";
 import { Header } from "../components/Header";
 import { Nft } from "../components/Nft";
 import { Profile } from "../components/Profile";
+import { Send } from "../components/Send";
 import { Transactions } from "../components/Transactions";
 import styles from "../styles/Home.module.css";
 
@@ -117,9 +118,7 @@ export default function Home() {
                   <Nft user={user} />
                 </TabPanel>
                 <TabPanel>
-                  <Text fontSize="xl" fontWeight="bold">
-                    Send ETH
-                  </Text>
+                  <Send user={user} />
                 </TabPanel>
               </TabPanels>
             </Tabs>
