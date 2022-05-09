@@ -47,7 +47,7 @@ export default function Home() {
             size="lg"
             onClick={() =>
               authenticate({
-                rovider: "walletconnect",
+                provider: "walletconnect",
                 mobileLinks: [
                   "rainbow",
                   "metamask",
