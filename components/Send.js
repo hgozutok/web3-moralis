@@ -51,7 +51,7 @@ export const Send = ({ user }) => {
                 duration: 9000,
                 isClosable: true,
               });
-              setAmount(0);
+              amount.current.value = 0;
               setToAddress("");
             },
             onError: (error) => {
@@ -105,6 +105,7 @@ export const Send = ({ user }) => {
             placeholder="0x..."
             onChange={(e) => setToAddress(e.target.value)}
           />
+
           <Button
             disabled={isFetching}
             type="submit"
