@@ -55,43 +55,15 @@ export default function Home() {
             <Button
               colorScheme="purple"
               size="lg"
+
               onClick={() => modalLogin.onOpen()}
             >
               Login Now!
             </Button>
             <LoginPop isOpen={modalLogin.isOpen} onClose={modalLogin.onClose} />
-            {/* <Button
-              colorScheme="purple"
-              size="lg"
-              onClick={() =>
-                authenticate({
-                  signingMessage: "Login to Dashboard",
-                })
-              }
-            >
-              Login with Metamask
-            </Button>
+           
 
-            <Button
-              colorScheme="teal"
-              size="lg"
-              onClick={() =>
-                authenticate({
-                  provider: "walletconnect",
-                  mobileLinks: [
-                    "rainbow",
-                    "metamask",
-                    "argent",
-                    "trust",
-                    "imtoken",
-                    "pillar",
-                  ],
-                  signingMessage: "Login to Dashboard",
-                })
-              }
-            >
-              Login with WalletConnect
-            </Button> */}
+    
           </HStack>
         </Flex>
       </>
