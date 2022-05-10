@@ -71,19 +71,15 @@ export const Send = ({ user }) => {
               id="amount"
               ref={amount}
               value={amount.current.value}
-          
             />
             <NumberInputStepper
               onClick={(e) => {
                 console.log(amount.current.value);
-
-          
               }}
             >
-              <NumberIncrementStepper
-           
-              <NumberDecrementStepper
-            
+              <NumberIncrementStepper />
+
+              <NumberDecrementStepper />
             </NumberInputStepper>
           </NumberInput>
           <FormLabel htmlFor="receiver">Receiver Address</FormLabel>
