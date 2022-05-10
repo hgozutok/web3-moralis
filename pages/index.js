@@ -8,6 +8,8 @@ import {
   Tab,
   TabPanels,
   TabPanel,
+  Spacer,
+  HStack,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Image from "next/image";
@@ -15,15 +17,19 @@ import { useMoralis } from "react-moralis";
 import { Balance } from "../components/Balance";
 import { CustomContainer } from "../components/CustomContainer";
 import { Header } from "../components/Header";
+import LoginPop from "../components/modal/LoginPop";
 import { Nft } from "../components/Nft";
 import { Profile } from "../components/Profile";
 import { Send } from "../components/Send";
 import { Transactions } from "../components/Transactions";
 import styles from "../styles/Home.module.css";
-//comment.
+import { useDisclosure } from "@chakra-ui/react";
+
 export default function Home() {
   const { isAuthenticated, authenticate, user, logout, isLoggingOut } =
     useMoralis();
+
+  const modalLogin = useDisclosure();
 
   if (!isAuthenticated) {
     return (
@@ -37,31 +43,53 @@ export default function Home() {
           alignItems="center"
           width="100vw"
           height="100vh"
-          bgGradient="linear(to-br, teal.400 ,purple.300)"
+          bgGradient="linear(to-br, red.400 ,yellow.300)"
         >
           <Text fontSize="5xl" color="white" fontWeight="bold">
             Login to Dashboard
-          </Text>
-          <Button
-            colorScheme="purple"
-            size="lg"
-            onClick={() =>
-              authenticate({
-                rovider: "walletconnect",
-                mobileLinks: [
-                  "rainbow",
-                  "metamask",
-                  "argent",
-                  "trust",
-                  "imtoken",
-                  "pillar",
-                ],
-                signingMessage: "Login to Dashboard",
-              })
-            }
-          >
-            Login with Metamask
-          </Button>
+          </Text>{" "}
+          <HStack spacing="24px" direction="row">
+            <Button
+              colorScheme="purple"
+              size="lg"
+              onClick={() => modalLogin.onOpen()}
+            >
+              Login Now!
+            </Button>
+            <LoginPop isOpen={modalLogin.isOpen} onClose={modalLogin.onClose} />
+            {/* <Button
+              colorScheme="purple"
+              size="lg"
+              onClick={() =>
+                authenticate({
+                  signingMessage: "Login to Dashboard",
+                })
+              }
+            >
+              Login with Metamask
+            </Button>
+
+            <Button
+              colorScheme="teal"
+              size="lg"
+              onClick={() =>
+                authenticate({
+                  provider: "walletconnect",
+                  mobileLinks: [
+                    "rainbow",
+                    "metamask",
+                    "argent",
+                    "trust",
+                    "imtoken",
+                    "pillar",
+                  ],
+                  signingMessage: "Login to Dashboard",
+                })
+              }
+            >
+              Login with WalletConnect
+            </Button> */}
+          </HStack>
         </Flex>
       </>
     );
@@ -75,7 +103,7 @@ export default function Home() {
         </Head>
         <Flex direction="column" width="100vw" height="100vh">
           <Header user={user} logout={logout} isLoggingOut={isLoggingOut} />
-          <Box flex="1" bg="purple.100" px="44" py="20">
+          <Box flex="1" bg="blue.300" px="44" py="20">
             <Tabs align="center" variant="enclosed">
               <TabList>
                 <Tab>

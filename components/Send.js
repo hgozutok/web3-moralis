@@ -17,14 +17,16 @@ import { useWeb3Transfer } from "react-moralis";
 import Moralis from "moralis";
 
 export const Send = ({ user }) => {
-  const [amount, setAmount] = React.useState(0.0);
+  const amount = React.useRef(0);
   const [toAddress, setToAddress] = React.useState("");
 
   const toast = useToast();
 
   const { fetch, isFetching } = useWeb3Transfer({
     from: user.get("ethAddress"),
-    amount: Moralis.Units.ETH(amount),
+    amount: amount.current.value
+      ? Moralis.Units.ETH(parseFloat(amount.current.value))
+      : 0,
     receiver: toAddress,
     type: "native",
   });
@@ -36,20 +38,20 @@ export const Send = ({ user }) => {
         onSubmit={async (e) => {
           e.preventDefault();
 
-          setAmount(parseFloat(e.target.value));
-
-          console.log(amount);
+          //    setAmount(parseFloat(e.target.value));
+          let total = amount.current.value;
+          console.log(total);
           await Moralis.enableWeb3();
           await fetch({
             onSuccess: () => {
               toast({
-                title: "ETH succesfully sent.",
+                title: "ETH successfully sent.",
                 description: "Fresh ETH are showing up in receiver wallet.",
                 status: "success",
                 duration: 9000,
                 isClosable: true,
               });
-              setAmount(0);
+              amount.current.value = 0;
               setToAddress("");
             },
             onError: (error) => {
@@ -71,15 +73,30 @@ export const Send = ({ user }) => {
               id="amount"
               ref={amount}
               value={amount.current.value}
+              // onChange={(e) => {
+              //   onChange(e.target.value);
+              //   console.log(amount);
+              // }}
             />
             <NumberInputStepper
               onClick={(e) => {
                 console.log(amount.current.value);
+
+                // setAmount(parseFloat(e.target.value));
               }}
             >
-              <NumberIncrementStepper />
-
-              <NumberDecrementStepper />
+              <NumberIncrementStepper
+              // onClick={(e) => {
+              //   setAmount(parseFloat(e.target.value));
+              //   console.log(amount);
+              // }}
+              />
+              <NumberDecrementStepper
+              // onChange={(e) => {
+              //   setAmount(parseFloat(e.target.value));
+              //   console.log(amount);
+              // }}
+              />
             </NumberInputStepper>
           </NumberInput>
           <FormLabel htmlFor="receiver">Receiver Address</FormLabel>
@@ -88,6 +105,7 @@ export const Send = ({ user }) => {
             placeholder="0x..."
             onChange={(e) => setToAddress(e.target.value)}
           />
+
           <Button
             disabled={isFetching}
             type="submit"

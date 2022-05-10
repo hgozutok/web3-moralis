@@ -7,7 +7,7 @@ export const Header = ({ user, logout, isLoggingOut }) => {
       <Flex
         justifyContent="space-between"
         color="white"
-        bg="purple.400"
+        bg="blue.700"
         width="100vw"
       >
         <Center>
@@ -17,7 +17,7 @@ export const Header = ({ user, logout, isLoggingOut }) => {
         </Center>
         <Center>
           <Text>{user.getUsername()}</Text>
-          <Button ml="4" colorScheme="pink" onClick={() => logout()}>
+          <Button ml="4" colorScheme="blue" onClick={() => logout()}>
             Logout
           </Button>
         </Center>
