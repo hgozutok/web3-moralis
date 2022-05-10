@@ -9,6 +9,7 @@ export const Header = ({ user, logout, isLoggingOut }) => {
         color="white"
         bg="blue.700"
         width="100vw"
+        minWidth="520"
       >
         <Center>
           <Text fontSize="5xl" fontWeight="bold">

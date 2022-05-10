@@ -1,4 +1,4 @@
-import { Button, Flex, HStack } from "@chakra-ui/react";
+import { Button, Flex, Stack } from "@chakra-ui/react";
 import React from "react";
 
 import {
@@ -51,7 +51,7 @@ const LoginPop = ({ isOpen, onClose }) => {
           <ModalHeader>Login to Dashboard</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <HStack spacing="24px" direction="row">
+            <Stack direction={["column", "row"]} spacing="24px">
               <Button
                 colorScheme="purple"
                 size="lg"
@@ -84,7 +84,7 @@ const LoginPop = ({ isOpen, onClose }) => {
               >
                 Login with WalletConnect
               </Button>
-            </HStack>
+            </Stack>
           </ModalBody>
           <ModalFooter>
             {/* <Button colorScheme="red" onClick={onClose}>

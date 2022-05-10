@@ -1,12 +1,13 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 
 export const CustomContainer = ({ children }) => {
   return (
-    <Box
+    <Stack
       bg="white"
       width="full"
       height="full"
+      minWidth="400"
       px="20"
       py="20"
       rounded="lg"
@@ -14,6 +15,6 @@ export const CustomContainer = ({ children }) => {
       textAlign="left"
     >
       {children}
-    </Box>
+    </Stack>
   );
 };
