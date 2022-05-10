@@ -69,30 +69,21 @@ export const Send = ({ user }) => {
           <NumberInput step={0.001}>
             <NumberInputField
               id="amount"
-              value={amount}
-              onChange={(e) => {
-                onChange(parseFloat(e.target.value));
-                console.log(amount);
-              }}
+              ref={amount}
+              value={amount.current.value}
+          
             />
             <NumberInputStepper
-            //   onClick={(e) => {
-            //     console.log(e);
-            //     setAmount(parseFloat(e.target.value));
-            //   }}
+              onClick={(e) => {
+                console.log(amount.current.value);
+
+          
+              }}
             >
               <NumberIncrementStepper
-              // onClick={(e) => {
-              //   setAmount(parseFloat(e.target.value));
-              //   console.log(amount);
-              // }}
-              />
+           
               <NumberDecrementStepper
-              // onChange={(e) => {
-              //   setAmount(parseFloat(e.target.value));
-              //   console.log(amount);
-              // }}
-              />
+            
             </NumberInputStepper>
           </NumberInput>
           <FormLabel htmlFor="receiver">Receiver Address</FormLabel>
