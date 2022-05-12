@@ -26,7 +26,7 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   const { isAuthenticated, authenticate, user, logout, isLoggingOut } =
     useMoralis();
-
+//logged in
   if (!isAuthenticated) {
     return (
       <>
