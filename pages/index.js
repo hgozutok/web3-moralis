@@ -24,7 +24,6 @@ import { Send } from "../components/Send";
 import { Transactions } from "../components/Transactions";
 import styles from "../styles/Home.module.css";
 import { useDisclosure } from "@chakra-ui/react";
-import { Container } from "@chakra-ui/react";
 
 export default function Home() {
   const { isAuthenticated, authenticate, user, logout, isLoggingOut } =
@@ -55,15 +54,11 @@ export default function Home() {
             <Button
               colorScheme="purple"
               size="lg"
-
               onClick={() => modalLogin.onOpen()}
             >
               Login Now!
             </Button>
             <LoginPop isOpen={modalLogin.isOpen} onClose={modalLogin.onClose} />
-           
-
-    
           </HStack>
         </Flex>
       </>

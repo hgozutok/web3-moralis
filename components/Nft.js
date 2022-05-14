@@ -6,6 +6,7 @@ import { Image } from "@chakra-ui/react";
 export const Nft = ({ user }) => {
   const { getNFTBalances, data } = useNFTBalances();
   const [nftBalances, setNftBalances] = React.useState([]);
+  const [metadata, setMetadata] = React.useState([]);
   const fetchNFTBalances = async () => {
     const data = await getNFTBalances({
       address: user.get("ethAddress"),
@@ -15,8 +16,16 @@ export const Nft = ({ user }) => {
     });
     if (data) {
       setNftBalances(data.result);
-      console.log(nftBalances);
-      console.log(data);
+      data.result.forEach((element) => {
+        let el;
+        element.metadata ? (el = JSON.parse(element.metadata)) : null;
+        setNftBalances([...nftBalances, ...el]);
+        console.log("img", el ? el.image : "noo");
+      });
+
+      console.log("nftBalances", nftBalances);
+      console.log(data.result);
+      console.log("metadata", metadata);
     }
   };
 
@@ -30,14 +39,15 @@ export const Nft = ({ user }) => {
       {nftBalances ? (
         nftBalances.map((nft) => (
           <div key={nft.token_id}>
-            {nft.image && <Image width="200px" src={nft.image} />}
+            {/* {JSON.stringify(nft)} */}
+
+            {nft.metadata && <Image width="200px" src={el.image} alt="NFT" />}
             <h2>{nft.token_id}</h2>
             <h3>{nft.token_name}</h3>
             <h3>{nft.symbol}</h3>
             <h3>{nft.token_uri}</h3>
             <h3>{nft.token_address}</h3>
             <h3>{nft.owner_of}</h3>
-
             <div />
           </div>
         ))
