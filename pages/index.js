@@ -26,7 +26,7 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   const { isAuthenticated, authenticate, user, logout, isLoggingOut } =
     useMoralis();
-//logged in
+  //logged in
   if (!isAuthenticated) {
     return (
       <>
@@ -54,7 +54,7 @@ export default function Home() {
                 })
               }
             >
-              Login with Metamask
+              Login With Metamask
             </Button>
 
             <Button
@@ -75,7 +75,7 @@ export default function Home() {
                 })
               }
             >
-              Login with WalletConnect
+              Login With WalletConnect
             </Button>
           </HStack>
         </Flex>
