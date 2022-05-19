@@ -40,7 +40,7 @@ export const Profile = ({ user }) => {
             onChange={(e) => {
               setName(e.target.value);
             }}
-            placeholder="New Username"
+            placeholder="New Username..."
           />
           <Button type="submit" disabled={isUserUpdating} colorScheme="cyan">
             Save
