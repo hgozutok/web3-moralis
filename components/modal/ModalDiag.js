@@ -58,7 +58,7 @@ const ModalDiag = ({ isOpen, onOpen, onClose }) => {
         {overlay}
         {/* <OverlayOne /> */}
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Modal Title...</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Button>Spring&Hugo</Button>
