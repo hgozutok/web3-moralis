@@ -62,7 +62,7 @@ const ModalDiag = ({ isOpen, onOpen, onClose }) => {
           <ModalCloseButton />
           <ModalBody>
             <Button>Spring&Hugo</Button>
-            <Text>Custom backdrop filters..!</Text>
+            <Text>Custom backdrop modal..!</Text>
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="green" onClick={onClose}>
