@@ -51,7 +51,7 @@ const ModalDiag = ({ isOpen, onOpen, onClose }) => {
           onOpen();
         }}
       >
-        Use Overlay two
+        Use Overlay two..
       </Button>{" "} */}
       {JSON.stringify(isOpen)}
       <Modal motionPreset="scale" isCentered isOpen={isOpen} onClose={onClose}>
